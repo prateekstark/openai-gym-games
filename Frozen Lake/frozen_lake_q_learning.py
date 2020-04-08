@@ -12,12 +12,16 @@ def epsilon_greedy_action(Q, state, e):
 	return action
 
 def get_epsilon(episode, num_episodes):
-	return math.exp(-2.4*episode/num_episodes)
+	if(episode < num_episodes):
+		# return math.exp(-2.4*episode/num_episodes)
+		return 1.0 - (episode+0.0)/num_episodes
+	else:
+		return 0.05
 
 # Algorithm parameters: step size alpha from (0, 1], small epsilon > 0
-alpha = 0.5
+alpha = 0.01
 epsilon = 1
-num_episodes =50000
+num_episodes = 50000*2
 gamma = 0.95
 
 env = gym.make('FrozenLake-v0')
@@ -77,6 +81,6 @@ plt.plot(performance_list)
 # plt.plot(timesteps)
 plt.ylabel('Performance')
 plt.xlabel('Episodes')
-plt.savefig('FrozenLake-v0_q_learning.png')
+plt.savefig('FrozenLake-v0_q_learning1.png')
 plt.show()
 env.close()
