@@ -38,7 +38,7 @@ epsilon = 0.1
 num_episodes = 500
 gamma = 0.95
 beta = 0.05
-n = 2
+n = 1
 env = gym.make('LunarLander-v2')
 env._max_episode_steps = 10000
 
@@ -100,7 +100,7 @@ for episode in range(num_episodes):
 			print("Reward: " + str(sum(rewardlist)))
 			if(episode%1000 == 0):
 				np.save('weights', w)
-				np.save('timesteps', timesteps)
+				np.save('score_list_1step', score_list)
 			# Go to the next episode
 			break
 		t += 1
@@ -124,6 +124,6 @@ plt.plot(performance_list)
 # plt.plot(timesteps)
 plt.ylabel('Performance')
 plt.xlabel('Episodes')
-plt.savefig('LunarLander-v2_differential_semi_gradient_2step_sarsa_linear4.png')
+plt.savefig('LunarLander-v2_differential_semi_gradient_1step_sarsa_linear6.png')
 plt.show()
 env.close()
