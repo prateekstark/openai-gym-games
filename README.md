@@ -10,4 +10,4 @@ Please make sure to update tests as appropriate and provide curves for new obser
 
 
 ## License
-[MIT](./LICENCE)
+[MIT](../../LICENCE)
